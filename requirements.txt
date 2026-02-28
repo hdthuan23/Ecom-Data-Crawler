@@ -1,0 +1,7 @@
+# Tiki Electronics Data Crawler - Dependencies
+
+# HTTP requests + retry logic
+requests>=2.31.0
+
+# Data manipulation & CSV export
+pandas>=2.1.0

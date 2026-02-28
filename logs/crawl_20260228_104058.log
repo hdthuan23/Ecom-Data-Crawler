@@ -1,0 +1,402 @@
+2026-02-28 10:40:58 [INFO] main: Loading config: config.json
+2026-02-28 10:40:58 [INFO] main: ============================================================
+2026-02-28 10:40:58 [INFO] main: PROJECT: Tiki Electronics Market Research 2026
+2026-02-28 10:40:58 [INFO] main: RUN ID:  run_20260228_104058
+2026-02-28 10:40:58 [INFO] main: LOG:     logs/crawl_20260228_104058.log
+2026-02-28 10:40:58 [INFO] main: ============================================================
+2026-02-28 10:40:58 [INFO] crawler.brand_classifier: BrandClassifier initialized: 110 global brands, 8 OEM indicators
+2026-02-28 10:40:58 [INFO] crawler.scraper: TikiScraper initialized: max_pages=50, delay=2.5s
+2026-02-28 10:40:58 [INFO] crawler.storage: SQLite database initialized: data/tiki_electronics_2026.db
+2026-02-28 10:40:58 [INFO] crawler.storage: Crawl run started: run_20260228_104058
+2026-02-28 10:40:58 [INFO] main: 
+2026-02-28 10:40:58 [INFO] main: ============================================================
+2026-02-28 10:40:58 [INFO] main: PHASE 1: Dò tìm tất cả Leaf Categories (Sub-category sâu nhất)
+2026-02-28 10:40:58 [INFO] main: ============================================================
+2026-02-28 10:40:58 [INFO] main: 
+2026-02-28 10:40:58 [INFO] main: Scanning: Linh kiện máy tính (ID: 8129) - Nhóm lõi: RAM, CPU, Mainboard, VGA, PSU, Case, SSD, HDD, Tản nhiệt, Quạt...
+2026-02-28 10:40:58 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 8129
+2026-02-28 10:40:59 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 8129
+2026-02-28 10:40:59 [INFO] main: 
+2026-02-28 10:40:59 [INFO] main: Scanning: Thiết bị mạng (ID: 2663) - Nhóm bổ trợ: Router, Switch, Access Point, Card mạng, Modem...
+2026-02-28 10:40:59 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 2663
+2026-02-28 10:40:59 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 2663
+2026-02-28 10:40:59 [INFO] main: 
+2026-02-28 10:40:59 [INFO] main: Scanning: Thiết bị lưu trữ (ID: 8060) - Ổ cứng gắn ngoài, USB, Thẻ nhớ (Nơi chứa rất nhiều USB/Thẻ nhớ OEM/Fake)
+2026-02-28 10:40:59 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 8060
+2026-02-28 10:41:00 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 8060
+2026-02-28 10:41:00 [INFO] main: 
+2026-02-28 10:41:00 [INFO] main: Scanning: Phụ Kiện Phím Chuột Chơi Game (ID: 28692) - Bàn phím, Chuột, Lót chuột
+2026-02-28 10:41:00 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 28692
+2026-02-28 10:41:00 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 28692
+2026-02-28 10:41:00 [INFO] main: 
+2026-02-28 10:41:00 [INFO] main: Scanning: Cáp chuyển đổi (ID: 12296) - 
+2026-02-28 10:41:00 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 12296
+2026-02-28 10:41:01 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 12296
+2026-02-28 10:41:01 [INFO] main: 
+2026-02-28 10:41:01 [INFO] main: Scanning: Thẻ Nhớ và Bộ Nhớ Mở Rộng (ID: 28448) - 
+2026-02-28 10:41:01 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 28448
+2026-02-28 10:41:01 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 28448
+2026-02-28 10:41:01 [INFO] main: 
+2026-02-28 10:41:01 [INFO] main: Scanning: Tai Nghe Bluetooth, Tai Nghe True Wireless (ID: 1811) - 
+2026-02-28 10:41:01 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1811
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1811
+2026-02-28 10:41:02 [INFO] main: 
+2026-02-28 10:41:02 [INFO] main: Scanning: Pin dự phòng (ID: 1821) - 
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1821
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1821
+2026-02-28 10:41:02 [INFO] main: 
+2026-02-28 10:41:02 [INFO] main: Scanning: Cáp chuyển đổi (ID: 1823) - 
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1823
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1823
+2026-02-28 10:41:02 [INFO] main: 
+2026-02-28 10:41:02 [INFO] main: Scanning: Adapter - Củ Sạc (ID: 3803) - 
+2026-02-28 10:41:02 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 3803
+2026-02-28 10:41:03 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 3803
+2026-02-28 10:41:03 [INFO] main: 
+2026-02-28 10:41:03 [INFO] main: Scanning: Tai Nghe Có Dây (ID: 1804) - 
+2026-02-28 10:41:03 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1804
+2026-02-28 10:41:03 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1804
+2026-02-28 10:41:03 [INFO] main: 
+2026-02-28 10:41:03 [INFO] main: TỔNG CỘNG: 11 leaf categories (đã loại trùng từ 11)
+2026-02-28 10:41:03 [INFO] main:   [  8129] Linh Kiện Máy Tính - Phụ Kiện Máy Tính
+2026-02-28 10:41:03 [INFO] main:   [  2663] Thiết Bị Mạng
+2026-02-28 10:41:03 [INFO] main:   [  8060] Thiết Bị Lưu Trữ
+2026-02-28 10:41:03 [INFO] main:   [ 28692] Phụ Kiện Phím Chuột Chơi Game
+2026-02-28 10:41:03 [INFO] main:   [ 12296] Các Loại Cáp Chuyển Đổi
+2026-02-28 10:41:03 [INFO] main:   [ 28448] Thẻ Nhớ và Bộ Nhớ Mở Rộng
+2026-02-28 10:41:03 [INFO] main:   [  1811] Tai Nghe Bluetooth
+2026-02-28 10:41:03 [INFO] main:   [  1821] Pin Sạc Dự Phòng
+2026-02-28 10:41:03 [INFO] main:   [  1823] Dây Sạc - Dây Cáp
+2026-02-28 10:41:03 [INFO] main:   [  3803] Adapter - Củ Sạc
+2026-02-28 10:41:03 [INFO] main:   [  1804] Tai Nghe Có Dây
+2026-02-28 10:41:03 [INFO] main: 
+2026-02-28 10:41:03 [INFO] main: ============================================================
+2026-02-28 10:41:03 [INFO] main: PHASE 2: Crawl sản phẩm + Phân loại Brand Type real-time
+2026-02-28 10:41:03 [INFO] main: ============================================================
+2026-02-28 10:41:03 [INFO] main: 
+2026-02-28 10:41:03 [INFO] main: [1/11] Crawling: Linh Kiện Máy Tính - Phụ Kiện Máy Tính (ID: 8129)
+2026-02-28 10:41:03 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 1
+2026-02-28 10:41:06 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 2
+2026-02-28 10:41:09 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 3
+2026-02-28 10:41:12 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 4
+2026-02-28 10:41:15 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 5
+2026-02-28 10:41:18 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 6
+2026-02-28 10:41:21 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 7
+2026-02-28 10:41:24 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 8
+2026-02-28 10:41:26 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 9
+2026-02-28 10:41:29 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 10
+2026-02-28 10:41:32 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 11
+2026-02-28 10:41:35 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 12
+2026-02-28 10:41:37 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 13
+2026-02-28 10:41:40 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 14
+2026-02-28 10:41:43 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 15
+2026-02-28 10:41:46 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 16
+2026-02-28 10:41:48 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 17
+2026-02-28 10:41:51 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 18
+2026-02-28 10:41:54 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 19
+2026-02-28 10:41:57 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 20
+2026-02-28 10:41:59 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 21
+2026-02-28 10:42:02 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 22
+2026-02-28 10:42:05 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 23
+2026-02-28 10:42:08 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 24
+2026-02-28 10:42:10 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 25
+2026-02-28 10:42:13 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 26
+2026-02-28 10:42:16 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 27
+2026-02-28 10:42:19 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 28
+2026-02-28 10:42:22 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 29
+2026-02-28 10:42:24 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 30
+2026-02-28 10:42:27 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 31
+2026-02-28 10:42:30 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 32
+2026-02-28 10:42:33 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 33
+2026-02-28 10:42:35 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 34
+2026-02-28 10:42:38 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 35
+2026-02-28 10:42:41 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 36
+2026-02-28 10:42:44 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 37
+2026-02-28 10:42:46 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 38
+2026-02-28 10:42:49 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 39
+2026-02-28 10:42:52 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 40
+2026-02-28 10:42:55 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 41
+2026-02-28 10:42:57 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 42
+2026-02-28 10:43:00 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 43
+2026-02-28 10:43:03 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 44
+2026-02-28 10:43:06 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 45
+2026-02-28 10:43:08 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 46
+2026-02-28 10:43:11 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 47
+2026-02-28 10:43:14 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 48
+2026-02-28 10:43:16 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 49
+2026-02-28 10:43:19 [INFO] crawler.scraper:   Đang quét category 8129 (Linh Kiện Máy Tính - Phụ Kiện Máy Tính) - Trang 50
+2026-02-28 10:43:19 [INFO] crawler.scraper:   Đã đến trang cuối (50) của category 8129
+2026-02-28 10:43:19 [INFO] crawler.storage: Upserted 2000 products (New: 2000, Updated: 0)
+2026-02-28 10:43:19 [INFO] main:   -> Tìm thấy: 2000 | Mới: 2000 | Cập nhật: 0
+2026-02-28 10:43:19 [INFO] main: 
+2026-02-28 10:43:19 [INFO] main: [2/11] Crawling: Thiết Bị Mạng (ID: 2663)
+2026-02-28 10:43:19 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 1
+2026-02-28 10:43:23 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 2
+2026-02-28 10:43:25 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 3
+2026-02-28 10:43:28 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 4
+2026-02-28 10:43:31 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 5
+2026-02-28 10:43:33 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 6
+2026-02-28 10:43:36 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 7
+2026-02-28 10:43:39 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 8
+2026-02-28 10:43:42 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 9
+2026-02-28 10:43:44 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 10
+2026-02-28 10:43:47 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 11
+2026-02-28 10:43:50 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 12
+2026-02-28 10:43:53 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 13
+2026-02-28 10:43:55 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 14
+2026-02-28 10:43:58 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 15
+2026-02-28 10:44:01 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 16
+2026-02-28 10:44:04 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 17
+2026-02-28 10:44:06 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 18
+2026-02-28 10:44:09 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 19
+2026-02-28 10:44:12 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 20
+2026-02-28 10:44:15 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 21
+2026-02-28 10:44:17 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 22
+2026-02-28 10:44:21 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 23
+2026-02-28 10:44:23 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 24
+2026-02-28 10:44:26 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 25
+2026-02-28 10:44:29 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 26
+2026-02-28 10:44:32 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 27
+2026-02-28 10:44:34 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 28
+2026-02-28 10:44:37 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 29
+2026-02-28 10:44:40 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 30
+2026-02-28 10:44:43 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 31
+2026-02-28 10:44:45 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 32
+2026-02-28 10:44:48 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 33
+2026-02-28 10:44:51 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 34
+2026-02-28 10:44:54 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 35
+2026-02-28 10:44:56 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 36
+2026-02-28 10:44:59 [INFO] crawler.scraper:   Đang quét category 2663 (Thiết Bị Mạng) - Trang 37
+2026-02-28 10:44:59 [INFO] crawler.scraper:   Đã đến trang cuối (37) của category 2663
+2026-02-28 10:44:59 [INFO] crawler.storage: Upserted 1475 products (New: 1473, Updated: 2)
+2026-02-28 10:44:59 [INFO] main:   -> Tìm thấy: 1475 | Mới: 1473 | Cập nhật: 2
+2026-02-28 10:44:59 [INFO] main: 
+2026-02-28 10:44:59 [INFO] main: [3/11] Crawling: Thiết Bị Lưu Trữ (ID: 8060)
+2026-02-28 10:44:59 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 1
+2026-02-28 10:45:02 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 2
+2026-02-28 10:45:05 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 3
+2026-02-28 10:45:08 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 4
+2026-02-28 10:45:11 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 5
+2026-02-28 10:45:13 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 6
+2026-02-28 10:45:16 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 7
+2026-02-28 10:45:19 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 8
+2026-02-28 10:45:21 [INFO] crawler.scraper:   Đang quét category 8060 (Thiết Bị Lưu Trữ) - Trang 9
+2026-02-28 10:45:22 [INFO] crawler.scraper:   Đã đến trang cuối (9) của category 8060
+2026-02-28 10:45:22 [INFO] crawler.storage: Upserted 335 products (New: 335, Updated: 0)
+2026-02-28 10:45:22 [INFO] main:   -> Tìm thấy: 335 | Mới: 335 | Cập nhật: 0
+2026-02-28 10:45:22 [INFO] main: 
+2026-02-28 10:45:22 [INFO] main: [4/11] Crawling: Phụ Kiện Phím Chuột Chơi Game (ID: 28692)
+2026-02-28 10:45:22 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 1
+2026-02-28 10:45:24 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 2
+2026-02-28 10:45:27 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 3
+2026-02-28 10:45:30 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 4
+2026-02-28 10:45:33 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 5
+2026-02-28 10:45:35 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 6
+2026-02-28 10:45:38 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 7
+2026-02-28 10:45:41 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 8
+2026-02-28 10:45:44 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 9
+2026-02-28 10:45:46 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 10
+2026-02-28 10:45:49 [INFO] crawler.scraper:   Đang quét category 28692 (Phụ Kiện Phím Chuột Chơi Game) - Trang 11
+2026-02-28 10:45:49 [INFO] crawler.scraper:   Đã đến trang cuối (11) của category 28692
+2026-02-28 10:45:49 [INFO] crawler.storage: Upserted 418 products (New: 418, Updated: 0)
+2026-02-28 10:45:49 [INFO] main:   -> Tìm thấy: 418 | Mới: 418 | Cập nhật: 0
+2026-02-28 10:45:49 [INFO] main: 
+2026-02-28 10:45:49 [INFO] main: [5/11] Crawling: Các Loại Cáp Chuyển Đổi (ID: 12296)
+2026-02-28 10:45:49 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 1
+2026-02-28 10:45:52 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 2
+2026-02-28 10:45:55 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 3
+2026-02-28 10:45:58 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 4
+2026-02-28 10:46:00 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 5
+2026-02-28 10:46:03 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 6
+2026-02-28 10:46:06 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 7
+2026-02-28 10:46:09 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 8
+2026-02-28 10:46:11 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 9
+2026-02-28 10:46:14 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 10
+2026-02-28 10:46:17 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 11
+2026-02-28 10:46:20 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 12
+2026-02-28 10:46:22 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 13
+2026-02-28 10:46:25 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 14
+2026-02-28 10:46:28 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 15
+2026-02-28 10:46:30 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 16
+2026-02-28 10:46:33 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 17
+2026-02-28 10:46:36 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 18
+2026-02-28 10:46:39 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 19
+2026-02-28 10:46:41 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 20
+2026-02-28 10:46:44 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 21
+2026-02-28 10:46:47 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 22
+2026-02-28 10:46:50 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 23
+2026-02-28 10:46:52 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 24
+2026-02-28 10:46:55 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 25
+2026-02-28 10:46:58 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 26
+2026-02-28 10:47:01 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 27
+2026-02-28 10:47:04 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 28
+2026-02-28 10:47:07 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 29
+2026-02-28 10:47:10 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 30
+2026-02-28 10:47:12 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 31
+2026-02-28 10:47:15 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 32
+2026-02-28 10:47:18 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 33
+2026-02-28 10:47:20 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 34
+2026-02-28 10:47:23 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 35
+2026-02-28 10:47:26 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 36
+2026-02-28 10:47:28 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 37
+2026-02-28 10:47:31 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 38
+2026-02-28 10:47:34 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 39
+2026-02-28 10:47:37 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 40
+2026-02-28 10:47:39 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 41
+2026-02-28 10:47:42 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 42
+2026-02-28 10:47:45 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 43
+2026-02-28 10:47:48 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 44
+2026-02-28 10:47:50 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 45
+2026-02-28 10:47:53 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 46
+2026-02-28 10:47:56 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 47
+2026-02-28 10:47:59 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 48
+2026-02-28 10:48:01 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 49
+2026-02-28 10:48:04 [INFO] crawler.scraper:   Đang quét category 12296 (Các Loại Cáp Chuyển Đổi) - Trang 50
+2026-02-28 10:48:04 [INFO] crawler.scraper:   Đã đến trang cuối (50) của category 12296
+2026-02-28 10:48:04 [INFO] crawler.storage: Upserted 2000 products (New: 2000, Updated: 0)
+2026-02-28 10:48:04 [INFO] main:   -> Tìm thấy: 2000 | Mới: 2000 | Cập nhật: 0
+2026-02-28 10:48:04 [INFO] main: 
+2026-02-28 10:48:04 [INFO] main: [6/11] Crawling: Thẻ Nhớ và Bộ Nhớ Mở Rộng (ID: 28448)
+2026-02-28 10:48:04 [INFO] crawler.scraper:   Đang quét category 28448 (Thẻ Nhớ và Bộ Nhớ Mở Rộng) - Trang 1
+2026-02-28 10:48:07 [INFO] crawler.scraper:   Đang quét category 28448 (Thẻ Nhớ và Bộ Nhớ Mở Rộng) - Trang 2
+2026-02-28 10:48:10 [INFO] crawler.scraper:   Đang quét category 28448 (Thẻ Nhớ và Bộ Nhớ Mở Rộng) - Trang 3
+2026-02-28 10:48:10 [INFO] crawler.scraper:   Đã đến trang cuối (3) của category 28448
+2026-02-28 10:48:10 [INFO] crawler.storage: Upserted 85 products (New: 85, Updated: 0)
+2026-02-28 10:48:10 [INFO] main:   -> Tìm thấy: 85 | Mới: 85 | Cập nhật: 0
+2026-02-28 10:48:10 [INFO] main: 
+2026-02-28 10:48:10 [INFO] main: [7/11] Crawling: Tai Nghe Bluetooth (ID: 1811)
+2026-02-28 10:48:10 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 1
+2026-02-28 10:48:13 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 2
+2026-02-28 10:48:15 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 3
+2026-02-28 10:48:18 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 4
+2026-02-28 10:48:21 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 5
+2026-02-28 10:48:24 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 6
+2026-02-28 10:48:26 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 7
+2026-02-28 10:48:29 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 8
+2026-02-28 10:48:32 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 9
+2026-02-28 10:48:35 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 10
+2026-02-28 10:48:37 [INFO] crawler.scraper:   Đang quét category 1811 (Tai Nghe Bluetooth) - Trang 11
+2026-02-28 10:48:38 [INFO] crawler.scraper:   Đã đến trang cuối (11) của category 1811
+2026-02-28 10:48:38 [INFO] crawler.storage: Upserted 410 products (New: 410, Updated: 0)
+2026-02-28 10:48:38 [INFO] main:   -> Tìm thấy: 410 | Mới: 410 | Cập nhật: 0
+2026-02-28 10:48:38 [INFO] main: 
+2026-02-28 10:48:38 [INFO] main: [8/11] Crawling: Pin Sạc Dự Phòng (ID: 1821)
+2026-02-28 10:48:38 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 1
+2026-02-28 10:48:40 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 2
+2026-02-28 10:48:43 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 3
+2026-02-28 10:48:46 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 4
+2026-02-28 10:48:49 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 5
+2026-02-28 10:48:51 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 6
+2026-02-28 10:48:54 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 7
+2026-02-28 10:48:57 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 8
+2026-02-28 10:49:00 [INFO] crawler.scraper:   Đang quét category 1821 (Pin Sạc Dự Phòng) - Trang 9
+2026-02-28 10:49:00 [INFO] crawler.scraper:   Đã đến trang cuối (9) của category 1821
+2026-02-28 10:49:00 [INFO] crawler.storage: Upserted 340 products (New: 340, Updated: 0)
+2026-02-28 10:49:00 [INFO] main:   -> Tìm thấy: 340 | Mới: 340 | Cập nhật: 0
+2026-02-28 10:49:00 [INFO] main: 
+2026-02-28 10:49:00 [INFO] main: [9/11] Crawling: Dây Sạc - Dây Cáp (ID: 1823)
+2026-02-28 10:49:00 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 1
+2026-02-28 10:49:03 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 2
+2026-02-28 10:49:06 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 3
+2026-02-28 10:49:09 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 4
+2026-02-28 10:49:11 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 5
+2026-02-28 10:49:14 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 6
+2026-02-28 10:49:17 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 7
+2026-02-28 10:49:20 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 8
+2026-02-28 10:49:23 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 9
+2026-02-28 10:49:25 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 10
+2026-02-28 10:49:28 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 11
+2026-02-28 10:49:31 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 12
+2026-02-28 10:49:34 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 13
+2026-02-28 10:49:36 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 14
+2026-02-28 10:49:39 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 15
+2026-02-28 10:49:42 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 16
+2026-02-28 10:49:45 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 17
+2026-02-28 10:49:47 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 18
+2026-02-28 10:49:50 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 19
+2026-02-28 10:49:53 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 20
+2026-02-28 10:49:56 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 21
+2026-02-28 10:49:58 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 22
+2026-02-28 10:50:01 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 23
+2026-02-28 10:50:04 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 24
+2026-02-28 10:50:07 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 25
+2026-02-28 10:50:09 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 26
+2026-02-28 10:50:12 [INFO] crawler.scraper:   Đang quét category 1823 (Dây Sạc - Dây Cáp) - Trang 27
+2026-02-28 10:50:13 [INFO] crawler.scraper:   Đã đến trang cuối (27) của category 1823
+2026-02-28 10:50:13 [INFO] crawler.storage: Upserted 1076 products (New: 1075, Updated: 1)
+2026-02-28 10:50:13 [INFO] main:   -> Tìm thấy: 1076 | Mới: 1075 | Cập nhật: 1
+2026-02-28 10:50:13 [INFO] main: 
+2026-02-28 10:50:13 [INFO] main: [10/11] Crawling: Adapter - Củ Sạc (ID: 3803)
+2026-02-28 10:50:13 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 1
+2026-02-28 10:50:16 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 2
+2026-02-28 10:50:18 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 3
+2026-02-28 10:50:21 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 4
+2026-02-28 10:50:24 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 5
+2026-02-28 10:50:26 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 6
+2026-02-28 10:50:29 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 7
+2026-02-28 10:50:32 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 8
+2026-02-28 10:50:35 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 9
+2026-02-28 10:50:38 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 10
+2026-02-28 10:50:40 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 11
+2026-02-28 10:50:43 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 12
+2026-02-28 10:50:46 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 13
+2026-02-28 10:50:49 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 14
+2026-02-28 10:50:51 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 15
+2026-02-28 10:50:54 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 16
+2026-02-28 10:50:57 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 17
+2026-02-28 10:51:00 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 18
+2026-02-28 10:51:02 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 19
+2026-02-28 10:51:05 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 20
+2026-02-28 10:51:08 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 21
+2026-02-28 10:51:11 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 22
+2026-02-28 10:51:13 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 23
+2026-02-28 10:51:16 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 24
+2026-02-28 10:51:19 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 25
+2026-02-28 10:51:22 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 26
+2026-02-28 10:51:25 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 27
+2026-02-28 10:51:27 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 28
+2026-02-28 10:51:30 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 29
+2026-02-28 10:51:33 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 30
+2026-02-28 10:51:36 [INFO] crawler.scraper:   Đang quét category 3803 (Adapter - Củ Sạc) - Trang 31
+2026-02-28 10:51:36 [INFO] crawler.scraper:   Đã đến trang cuối (31) của category 3803
+2026-02-28 10:51:36 [INFO] crawler.storage: Upserted 1224 products (New: 1224, Updated: 0)
+2026-02-28 10:51:36 [INFO] main:   -> Tìm thấy: 1224 | Mới: 1224 | Cập nhật: 0
+2026-02-28 10:51:36 [INFO] main: 
+2026-02-28 10:51:36 [INFO] main: [11/11] Crawling: Tai Nghe Có Dây (ID: 1804)
+2026-02-28 10:51:36 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 1
+2026-02-28 10:51:39 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 2
+2026-02-28 10:51:42 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 3
+2026-02-28 10:51:45 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 4
+2026-02-28 10:51:47 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 5
+2026-02-28 10:51:50 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 6
+2026-02-28 10:51:53 [INFO] crawler.scraper:   Đang quét category 1804 (Tai Nghe Có Dây) - Trang 7
+2026-02-28 10:51:53 [INFO] crawler.scraper:   Đã đến trang cuối (7) của category 1804
+2026-02-28 10:51:53 [INFO] crawler.storage: Upserted 279 products (New: 279, Updated: 0)
+2026-02-28 10:51:53 [INFO] main:   -> Tìm thấy: 279 | Mới: 279 | Cập nhật: 0
+2026-02-28 10:51:53 [INFO] main: 
+2026-02-28 10:51:53 [INFO] main: ============================================================
+2026-02-28 10:51:53 [INFO] main: PHASE 3: Lưu trữ & Export dữ liệu
+2026-02-28 10:51:53 [INFO] main: ============================================================
+2026-02-28 10:51:53 [INFO] crawler.storage: Crawl run completed: run_20260228_104058
+2026-02-28 10:51:53 [INFO] crawler.storage: Exported 9639 products -> data/tiki_electronics_2026_clean.csv
+2026-02-28 10:51:53 [INFO] main: 
+2026-02-28 10:51:53 [INFO] main: ============================================================
+2026-02-28 10:51:53 [INFO] main: CRAWL HOÀN THÀNH!
+2026-02-28 10:51:53 [INFO] main: ============================================================
+2026-02-28 10:51:53 [INFO] main: Run ID:             run_20260228_104058
+2026-02-28 10:51:53 [INFO] main: Categories crawled: 11
+2026-02-28 10:51:53 [INFO] main: Sản phẩm lần này:   9,642 (Mới: 9,639 | Cập nhật: 3)
+2026-02-28 10:51:53 [INFO] main: Tổng trong DB:      9,639
+2026-02-28 10:51:53 [INFO] main: Thương hiệu:        418
+2026-02-28 10:51:53 [INFO] main: 
+2026-02-28 10:51:53 [INFO] main: Phân bố Brand Type:
+2026-02-28 10:51:53 [INFO] main:   Global_Brand        :  4,424 (45.9%)
+2026-02-28 10:51:53 [INFO] main:   Local_Generic       :  5,133 (53.3%)
+2026-02-28 10:51:53 [INFO] main:   OEM_Generic         :     82 (0.9%)
+2026-02-28 10:51:53 [INFO] main: 
+2026-02-28 10:51:53 [INFO] main: Output files:
+2026-02-28 10:51:53 [INFO] main:   SQLite: data/tiki_electronics_2026.db
+2026-02-28 10:51:53 [INFO] main:   CSV:    data/tiki_electronics_2026_clean.csv (9,639 records)
+2026-02-28 10:51:53 [INFO] main:   Log:    logs/crawl_20260228_104058.log
+2026-02-28 10:51:53 [INFO] main: ============================================================
+2026-02-28 10:51:53 [INFO] crawler.storage: Database connection closed.

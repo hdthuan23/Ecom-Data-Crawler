@@ -1,0 +1,77 @@
+2026-02-28 10:11:24 [INFO] main: Loading config: config.json
+2026-02-28 10:11:24 [INFO] main: ============================================================
+2026-02-28 10:11:24 [INFO] main: PROJECT: Tiki Electronics Market Research 2026
+2026-02-28 10:11:24 [INFO] main: RUN ID:  run_20260228_101124
+2026-02-28 10:11:24 [INFO] main: LOG:     logs/crawl_20260228_101124.log
+2026-02-28 10:11:24 [INFO] main: ============================================================
+2026-02-28 10:11:24 [INFO] crawler.brand_classifier: BrandClassifier initialized: 71 global brands, 8 OEM indicators
+2026-02-28 10:11:24 [INFO] crawler.scraper: TikiScraper initialized: max_pages=50, delay=2.5s
+2026-02-28 10:11:24 [INFO] crawler.storage: SQLite database initialized: data/tiki_electronics_2026.db
+2026-02-28 10:11:24 [INFO] crawler.storage: Crawl run started: run_20260228_101124
+2026-02-28 10:11:24 [INFO] main: 
+2026-02-28 10:11:24 [INFO] main: ============================================================
+2026-02-28 10:11:24 [INFO] main: PHASE 1: Dò tìm tất cả Leaf Categories (Sub-category sâu nhất)
+2026-02-28 10:11:24 [INFO] main: ============================================================
+2026-02-28 10:11:24 [INFO] main: 
+2026-02-28 10:11:24 [INFO] main: Scanning: Linh kiện máy tính (ID: 8322) - Nhóm lõi: RAM, CPU, Mainboard, VGA, PSU, Case, SSD, HDD, Tản nhiệt, Quạt...
+2026-02-28 10:11:24 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 8322
+2026-02-28 10:11:25 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 8322
+2026-02-28 10:11:25 [INFO] main: 
+2026-02-28 10:11:25 [INFO] main: Scanning: Thiết bị mạng (ID: 1815) - Nhóm bổ trợ: Router, Switch, Access Point, Card mạng, Modem...
+2026-02-28 10:11:25 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1815
+2026-02-28 10:11:25 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1815
+2026-02-28 10:11:25 [INFO] main: 
+2026-02-28 10:11:25 [INFO] main: Scanning: Thiết bị lưu trữ (ID: 28856) - Ổ cứng gắn ngoài, USB, Thẻ nhớ (Nơi chứa rất nhiều USB/Thẻ nhớ OEM/Fake)
+2026-02-28 10:11:25 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 28856
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 28856
+2026-02-28 10:11:26 [INFO] main: 
+2026-02-28 10:11:26 [INFO] main: Scanning: Phụ kiện máy tính (ID: 1846) - Bàn phím, Chuột, Lót chuột, Cáp chuyển đổi (Thị trường của OEM và Hàng nội địa Trung)
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1846
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1846
+2026-02-28 10:11:26 [INFO] main: 
+2026-02-28 10:11:26 [INFO] main: Scanning: Phụ kiện điện thoại (ID: 13038) - Cáp sạc, Củ sạc, Pin dự phòng (Ngách cực kỳ cạnh tranh giữa Global như Anker/Baseus và OEM)
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 13038
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 13038
+2026-02-28 10:11:26 [INFO] main: 
+2026-02-28 10:11:26 [INFO] main: Scanning: Thiết bị âm thanh (ID: 8060) - Tai nghe, Loa vi tính, Soundcard
+2026-02-28 10:11:26 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 8060
+2026-02-28 10:11:27 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 8060
+2026-02-28 10:11:27 [INFO] main: 
+2026-02-28 10:11:27 [INFO] main: Scanning: Máy ảnh - Máy quay phim (ID: 1801) - Linh kiện máy ảnh, Thẻ nhớ chuyên dụng, Đèn flash
+2026-02-28 10:11:27 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 1801
+2026-02-28 10:11:27 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 1801
+2026-02-28 10:11:27 [INFO] main: 
+2026-02-28 10:11:27 [INFO] main: Scanning: Thiết bị nhà thông minh (ID: 28862) - Camera an ninh, Cảm biến, Công tắc thông minh (Phân hóa mạnh giữa Xiaomi/Tapo và hàng No-name)
+2026-02-28 10:11:27 [INFO] crawler.category_mapper: Bắt đầu dò tìm leaf categories cho parent ID: 28862
+2026-02-28 10:11:28 [INFO] crawler.category_mapper: Tìm thấy 1 leaf categories dưới parent 28862
+2026-02-28 10:11:28 [INFO] main: 
+2026-02-28 10:11:28 [INFO] main: TỔNG CỘNG: 8 leaf categories (đã loại trùng từ 8)
+2026-02-28 10:11:28 [INFO] main:   [  8322] Nhà Sách Tiki
+2026-02-28 10:11:28 [INFO] main:   [  1815] Thiết Bị Số - Phụ Kiện Số
+2026-02-28 10:11:28 [INFO] main:   [ 28856] Máy đọc sách
+2026-02-28 10:11:28 [INFO] main:   [  1846] Laptop - Máy Vi Tính - Linh kiện
+2026-02-28 10:11:28 [INFO] main:   [ 13038] Dây Kim Loại 
+2026-02-28 10:11:28 [INFO] main:   [  8060] Thiết Bị Lưu Trữ
+2026-02-28 10:11:28 [INFO] main:   [  1801] Máy Ảnh - Máy Quay Phim
+2026-02-28 10:11:28 [INFO] main:   [ 28862] Loa sân khấu, ngoài trời
+2026-02-28 10:11:28 [INFO] main: 
+2026-02-28 10:11:28 [INFO] main: ============================================================
+2026-02-28 10:11:28 [INFO] main: PHASE 2: Crawl sản phẩm + Phân loại Brand Type real-time
+2026-02-28 10:11:28 [INFO] main: ============================================================
+2026-02-28 10:11:28 [INFO] main: 
+2026-02-28 10:11:28 [INFO] main: [1/8] Crawling: Nhà Sách Tiki (ID: 8322)
+2026-02-28 10:11:28 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 1
+2026-02-28 10:11:31 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 2
+2026-02-28 10:11:34 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 3
+2026-02-28 10:11:36 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 4
+2026-02-28 10:11:39 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 5
+2026-02-28 10:11:42 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 6
+2026-02-28 10:11:45 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 7
+2026-02-28 10:11:47 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 8
+2026-02-28 10:11:50 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 9
+2026-02-28 10:11:53 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 10
+2026-02-28 10:11:56 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 11
+2026-02-28 10:11:58 [INFO] crawler.scraper:   Đang quét category 8322 (Nhà Sách Tiki) - Trang 12
+2026-02-28 10:12:00 [WARNING] main: Crawl bị dừng bởi người dùng (Ctrl+C)
+2026-02-28 10:12:00 [INFO] crawler.storage: Crawl run completed: run_20260228_101124
+2026-02-28 10:12:00 [INFO] crawler.storage: Database connection closed.

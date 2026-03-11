@@ -1,3 +1,0 @@
-2026-03-11 16:51:52 [INFO] main: Loading config: config.json
-2026-03-11 16:51:52 [INFO] crawler.storage: SQLite database initialized: data/tiki_electronics_2026.db
-2026-03-11 16:51:52 [INFO] crawler.storage: Exported 11442 products -> data/tiki_electronics_2026_clean.csv

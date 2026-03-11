@@ -74,7 +74,7 @@ class SQLiteStorage:
         """)
 
         # ========== BẢNG SẢN PHẨM (CORE) ==========
-        # 15 trường dữ liệu + 3 trường metadata (first/last_crawled, run_id)
+        # 14 trường dữ liệu + 3 trường metadata (first/last_crawled, run_id)
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS products (
                 product_id       INTEGER PRIMARY KEY,
@@ -90,7 +90,6 @@ class SQLiteStorage:
                 review_count     INTEGER,
                 quantity_sold    INTEGER,
                 seller_name      TEXT,
-                is_official      INTEGER DEFAULT 0,
                 is_tiki_trading  INTEGER DEFAULT 0,
                 first_crawled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 last_crawled_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -205,10 +204,10 @@ class SQLiteStorage:
                     product_id, product_name, category_id, category_name,
                     brand_name, brand_type, price, original_price,
                     discount_rate, rating_average, review_count,
-                    quantity_sold, seller_name, is_official, is_tiki_trading,
+                    quantity_sold, seller_name, is_tiki_trading,
                     first_crawled_at, last_crawled_at, crawl_run_id
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                     COALESCE(
                         (SELECT first_crawled_at FROM products
                          WHERE product_id = ?),
@@ -230,7 +229,6 @@ class SQLiteStorage:
                     review_count     = excluded.review_count,
                     quantity_sold    = excluded.quantity_sold,
                     seller_name      = excluded.seller_name,
-                    is_official      = excluded.is_official,
                     is_tiki_trading  = excluded.is_tiki_trading,
                     last_crawled_at  = CURRENT_TIMESTAMP,
                     crawl_run_id     = excluded.crawl_run_id
@@ -242,7 +240,7 @@ class SQLiteStorage:
                     p["price"], p["original_price"],
                     p["discount_rate"], p["rating_average"],
                     p["review_count"], p["quantity_sold"],
-                    p["seller_name"], p["is_official"], p["is_tiki_trading"],
+                    p["seller_name"], p["is_tiki_trading"],
                     p["product_id"],  # Cho subquery COALESCE
                     run_id,
                 ),
@@ -319,7 +317,7 @@ class SQLiteStorage:
                 product_id, product_name, category_id, category_name,
                 brand_name, brand_type, price, original_price,
                 discount_rate, rating_average, review_count,
-                quantity_sold, seller_name, is_official, is_tiki_trading,
+                quantity_sold, seller_name, is_tiki_trading,
                 first_crawled_at, last_crawled_at
             FROM products
             ORDER BY brand_type, category_id, price DESC

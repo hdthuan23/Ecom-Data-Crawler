@@ -3,7 +3,7 @@ Scraper Engine - Core Crawler thu thập sản phẩm từ Tiki API
 
 Chịu trách nhiệm:
   1. Gọi API products theo từng category + pagination
-  2. Trích xuất ĐÚNG 15 trường tinh gọn (Zero-Garbage Schema)
+  2. Trích xuất ĐÚNG 14 trường tinh gọn (Zero-Garbage Schema)
   3. Phân loại brand_type real-time qua BrandClassifier
   4. Xử lý lỗi, retry, rate limiting tự động
 
@@ -211,7 +211,7 @@ class TikiScraper:
             return None
 
         # === PHÂN LOẠI BRAND REAL-TIME ===
-        brand_type, is_official, is_tiki_trading = self.classifier.classify(item)
+        brand_type, is_tiki_trading = self.classifier.classify(item)
 
         # Xử lý quantity_sold (có thể là dict hoặc int hoặc None)
         qty_sold = item.get("quantity_sold")
@@ -225,7 +225,7 @@ class TikiScraper:
         if not original_price or original_price <= 0:
             original_price = price
 
-        # === TRẢ VỀ ĐÚNG 15 TRƯỜNG (ZERO-GARBAGE) ===
+        # === TRẢ VỀ ĐÚNG 14 TRƯỜNG (ZERO-GARBAGE) ===
         return {
             "product_id": int(product_id),
             "product_name": str(item.get("name") or "").strip(),
@@ -240,6 +240,5 @@ class TikiScraper:
             "review_count": int(item.get("review_count") or 0),
             "quantity_sold": int(qty_sold or 0),
             "seller_name": str(item.get("seller_name") or "").strip(),
-            "is_official": is_official,
             "is_tiki_trading": is_tiki_trading,
         }

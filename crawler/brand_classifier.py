@@ -80,51 +80,51 @@ class BrandClassifier:
         """
         Phân loại 1 sản phẩm dựa trên Decision Tree.
 
+        NOTE: is_official đã bị loại bỏ khỏi logic phân loại.
+        API list endpoint Tiki (/api/v2/products) không trả về badge data
+        trong response danh sách → field is_official luôn = 0, gây mislead.
+        Xem _detect_official_badge() nếu cần nghiên cứu thêm.
+
         Args:
             product_item (dict): Raw product data từ Tiki API
 
         Returns:
-            tuple: (brand_type: str, is_official: int, is_tiki_trading: int)
+            tuple: (brand_type: str, is_tiki_trading: int)
                 - brand_type: "Global_Brand" | "OEM_Generic" | "Local_Generic"
-                - is_official: 1 nếu là Official Store, 0 nếu không
                 - is_tiki_trading: 1 nếu Tiki Trading fulfillment, 0 nếu không
         """
         brand_name_raw = str(product_item.get("brand_name") or "").strip()
         brand_name_lower = brand_name_raw.lower()
 
-        # Phát hiện các tín hiệu uy tín
-        is_official = self._detect_official(product_item)
+        # Phát hiện tín hiệu Tiki Trading (detect được qua seller_name)
         is_tiki_trading = self._detect_tiki_trading(product_item)
 
         # ========== DECISION TREE ==========
 
         # Ưu tiên 1: Brand nằm trong từ điển Global
         if brand_name_lower in self.global_brands:
-            return self.GLOBAL_BRAND, is_official, is_tiki_trading
+            return self.GLOBAL_BRAND, is_tiki_trading
 
-        # Ưu tiên 2: Official Store hoặc Tiki Trading -> coi là Global
-        # (Official Store trên Tiki phải qua xác minh thương hiệu)
-        if is_official == 1:
-            return self.GLOBAL_BRAND, is_official, is_tiki_trading
-
-        # Ưu tiên 3: Brand rỗng hoặc khớp OEM indicators
+        # Ưu tiên 2: Brand rỗng hoặc khớp OEM indicators
         if not brand_name_lower or brand_name_lower in self.oem_indicators:
-            return self.OEM_GENERIC, is_official, is_tiki_trading
+            return self.OEM_GENERIC, is_tiki_trading
 
-        # Ưu tiên 4: Hàng cross-border (thường là OEM Trung Quốc)
+        # Ưu tiên 3: Hàng cross-border (thường là OEM Trung Quốc)
         if self._detect_cross_border(product_item):
-            return self.OEM_GENERIC, is_official, is_tiki_trading
+            return self.OEM_GENERIC, is_tiki_trading
 
         # Mặc định: Thương hiệu nhỏ lẻ/nội địa
-        return self.LOCAL_GENERIC, is_official, is_tiki_trading
+        return self.LOCAL_GENERIC, is_tiki_trading
 
-    def _detect_official(self, item):
+    def _detect_official_badge(self, item):
         """
-        Phát hiện sản phẩm từ Official Store (cửa hàng chính hãng).
+        [DEPRECATED / KHÔNG SỬ DỤNG TRONG CLASSIFY]
 
-        Kiểm tra nhiều nguồn:
-        - badges_new: mảng badge mới của Tiki
-        - badges: mảng badge cũ (backward compatibility)
+        API list endpoint Tiki không trả về badges trong response danh sách.
+        Method này chỉ hoạt động khi gọi endpoint chi tiết từng sản phẩm
+        (/api/v2/products/{id}), không khả thi cho crawl bulk.
+
+        Giữ lại để tham khảo nếu sau này cần gọi detail API riêng lẻ.
 
         Returns:
             int: 1 nếu Official, 0 nếu không

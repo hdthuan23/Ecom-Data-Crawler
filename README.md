@@ -25,7 +25,7 @@ Ecom-Data-Crawler/
 │   └── storage.py           # Tầng 5: SQLite + CSV Storage
 ├── data/                    # Output (auto-created)
 │   ├── tiki_electronics_2026.db      # SQLite database
-│   └── tiki_electronics_2026_clean.csv
+│   └── tiki_electronics_2026.csv
 ├── logs/                    # Log files (auto-created)
 └── requirements.txt
 ```

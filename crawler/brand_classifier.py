@@ -79,7 +79,6 @@ class BrandClassifier:
         NOTE: is_official đã bị loại bỏ khỏi logic phân loại.
         API list endpoint Tiki (/api/v2/products) không trả về badge data
         trong response danh sách → field is_official luôn = 0, gây mislead.
-        Xem _detect_official_badge() nếu cần nghiên cứu thêm.
 
         Args:
             product_item (dict): Raw product data từ Tiki API
@@ -111,41 +110,6 @@ class BrandClassifier:
 
         # Mặc định: Thương hiệu nhỏ lẻ/nội địa
         return self.LOCAL_OEM_GENERIC, is_tiki_trading
-
-    def _detect_official_badge(self, item):
-        """
-        [DEPRECATED / KHÔNG SỬ DỤNG TRONG CLASSIFY]
-
-        API list endpoint Tiki không trả về badges trong response danh sách.
-        Method này chỉ hoạt động khi gọi endpoint chi tiết từng sản phẩm
-        (/api/v2/products/{id}), không khả thi cho crawl bulk.
-
-        Giữ lại để tham khảo nếu sau này cần gọi detail API riêng lẻ.
-
-        Returns:
-            int: 1 nếu Official, 0 nếu không
-        """
-        # Kiểm tra badges_new (format mới)
-        badges_new = item.get("badges_new", []) or []
-        if isinstance(badges_new, list):
-            for badge in badges_new:
-                if isinstance(badge, dict):
-                    code = str(badge.get("code", "")).lower()
-                    if "official" in code:
-                        return 1
-
-        # Kiểm tra badges (format cũ, có thể là list hoặc string)
-        badges = item.get("badges", []) or []
-        if isinstance(badges, list):
-            for badge in badges:
-                if isinstance(badge, dict):
-                    code = str(badge.get("code", "")).lower()
-                    if "official" in code:
-                        return 1
-                elif isinstance(badge, str) and "official" in badge.lower():
-                    return 1
-
-        return 0
 
     def _detect_tiki_trading(self, item):
         """

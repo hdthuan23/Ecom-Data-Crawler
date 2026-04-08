@@ -1,27 +1,4 @@
-"""
-Tiki Electronics Data Crawler - Main Orchestrator
-==================================================
-
-Entry point điều phối toàn bộ quy trình crawl:
-
-  PHASE 1: Deep Category Discovery
-    -> Đọc target_parents từ config.json
-    -> Đệ quy tìm tất cả leaf categories (sub-category sâu nhất)
-
-  PHASE 2: Crawl Products & Real-time Classification
-    -> Duyệt từng leaf category
-    -> Gọi API products + pagination
-    -> Phân loại brand_type ngay (Global vs Local/OEM Generic)
-        -> Merge dữ liệu in-memory theo product_id (chống trùng lặp)
-
-  PHASE 3: Finalize & Export
-    -> Export CSV cho PowerBI/Tableau
-    -> In thống kê tổng hợp
-
-Cách sử dụng:
-  python main.py                    # Dùng config.json mặc định
-  python main.py custom_config.json # Dùng config tùy chỉnh
-"""
+"""Main orchestrator: crawl products and sync SQL Server snapshot."""
 
 import json
 import logging
@@ -33,6 +10,7 @@ from crawler.category_mapper import discover_leaf_categories
 from crawler.brand_classifier import BrandClassifier
 from crawler.scraper import TikiScraper, DEFAULT_HEADERS
 from crawler.storage import CSVStorage
+from crawler.sqlserver_sink import SQLServerSink
 
 
 def setup_logging():
@@ -116,9 +94,13 @@ def main():
     # Khởi tạo Scraper
     scraper = TikiScraper(settings, classifier)
 
-    # Khởi tạo Storage (CSV-only)
-    storage = CSVStorage()
-    storage.start_run(run_id)
+    # Storage in-memory for one crawl run
+    storage = CSVStorage(output.get("csv_export"))
+
+    # Optional SQL Server sink (local engine)
+    sql_sink = SQLServerSink(config.get("sql_server", {}))
+    if sql_sink.enabled:
+        sql_sink.connect()
 
     try:
         # ==========================================
@@ -147,11 +129,11 @@ def main():
                 delay=settings.get("delay_between_requests_sec", 2.0),
             )
 
-            # Lưu metadata categories vào storage in-memory
+            # Lưu metadata categories in-memory
             storage.save_categories(leaves, parent_id)
             all_leaf_categories.extend(leaves)
 
-        # De-duplicate categories (loại bỏ ID trùng)
+        # De-duplicate categories by ID
         seen_ids = set()
         unique_categories = []
         for cat in all_leaf_categories:
@@ -176,9 +158,6 @@ def main():
         logger.info("=" * 60)
 
         total_found = 0
-        total_new = 0
-        total_updated = 0
-
         for i, cat in enumerate(unique_categories, 1):
             logger.info("")
             logger.info(
@@ -190,18 +169,11 @@ def main():
             products = scraper.scrape_category(cat["id"], cat["name"])
 
             if products:
-                # Upsert theo product_id trong bộ nhớ
-                new_count, updated_count = storage.upsert_products(
-                    products, run_id
-                )
-                total_found += len(products)
-                total_new += new_count
-                total_updated += updated_count
+                # One dedup layer at storage by product_id
+                storage.upsert_products(products, run_id)
 
-                logger.info(
-                    f"  -> Tìm thấy: {len(products)} | "
-                    f"Mới: {new_count} | Cập nhật: {updated_count}"
-                )
+                total_found += len(products)
+                logger.info(f"  -> Tìm thấy: {len(products)}")
             else:
                 logger.info("  -> Không có sản phẩm")
 
@@ -213,17 +185,12 @@ def main():
         logger.info("PHASE 3: Lưu trữ & Export dữ liệu")
         logger.info("=" * 60)
 
-        # Cập nhật trạng thái phiên crawl
-        storage.finish_run(
-            run_id, len(unique_categories),
-            total_found, total_new, total_updated
-        )
-
-        # Export ra CSV
+        # Export raw snapshot ra CSV
         csv_count = storage.export_to_csv(output["csv_export"])
 
-        # ========== IN BÁO CÁO TỔNG HỢP ==========
-        stats = storage.get_stats()
+        # SQL sync chạy 1 lần duy nhất từ snapshot đã unique trong storage
+        if sql_sink.enabled:
+            sql_sink.sync_snapshot(storage.get_all_products(), run_id)
 
         logger.info("")
         logger.info("=" * 60)
@@ -231,34 +198,23 @@ def main():
         logger.info("=" * 60)
         logger.info(f"Run ID:             {run_id}")
         logger.info(f"Categories crawled: {len(unique_categories)}")
-        logger.info(
-            f"Sản phẩm lần này:   {total_found:,} "
-            f"(Mới: {total_new:,} | Cập nhật: {total_updated:,})"
-        )
-        logger.info(f"Tổng trong DB:      {stats['total_products']:,}")
-        logger.info(f"Thương hiệu:        {stats['unique_brands']}")
-        logger.info(f"")
-        logger.info("Phân bố Brand Type:")
-        for bt, count in stats.get("by_brand_type", {}).items():
-            pct = (count / stats["total_products"] * 100
-                   if stats["total_products"] > 0 else 0)
-            logger.info(f"  {bt:20s}: {count:>6,} ({pct:.1f}%)")
+        logger.info(f"Sản phẩm crawl:     {total_found:,}")
 
         logger.info(f"")
-        logger.info("Output files:")
+        logger.info(f"Output files:")
         logger.info(f"  CSV:    {output['csv_export']} ({csv_count:,} records)")
+        if sql_sink.enabled:
+            logger.info("  SQL:    Synced to local SQL Server")
         logger.info(f"  Log:    {log_file}")
         logger.info("=" * 60)
 
     except KeyboardInterrupt:
         logger.warning("Crawl bị dừng bởi người dùng (Ctrl+C)")
-        storage.finish_run(
-            run_id, 0, total_found, total_new, total_updated
-        )
     except Exception as e:
         logger.error(f"Crawl thất bại: {e}", exc_info=True)
         raise
     finally:
+        sql_sink.close()
         storage.close()
 
 

@@ -211,5 +211,13 @@
   },
   "output": {
     "csv_export": "data/tiki_electronics_2026.csv"
+  },
+  "sql_server": {
+    "enabled": true,
+    "connection_string": "Driver={ODBC Driver 17 for SQL Server};Server=localhost\\SQLEXPRESS;Database=TikiAnalysis2026;Trusted_Connection=yes;Encrypt=yes;TrustServerCertificate=yes;",
+    "categories_table": "dbo.Categories",
+    "brands_table": "dbo.Brands",
+    "sellers_table": "dbo.Sellers",
+    "products_table": "dbo.Products"
   }
 }

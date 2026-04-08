@@ -20,6 +20,19 @@ env/
 logs/
 *.log
 
+# Generated analysis artifacts
+analysis/charts/*.png
+analysis/output_part*.txt
+stats_output.txt
+
+# SQL scratch files
+SQLFile*.sql
+SQLQuery*.sql
+
+# Keep only CSV data files under data/
+data/*
+!data/*.csv
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
@@ -29,3 +42,4 @@ Thumbs.db
 
 # VS Code
 .vscode/
+

@@ -11,8 +11,8 @@ Entry point điều phối toàn bộ quy trình crawl:
   PHASE 2: Crawl Products & Real-time Classification
     -> Duyệt từng leaf category
     -> Gọi API products + pagination
-    -> Phân loại brand_type ngay (Global/OEM/Local)
-    -> UPSERT vào SQLite (chống trùng lặp)
+    -> Phân loại brand_type ngay (Global vs Local/OEM Generic)
+        -> Merge dữ liệu in-memory theo product_id (chống trùng lặp)
 
   PHASE 3: Finalize & Export
     -> Export CSV cho PowerBI/Tableau
@@ -21,8 +21,6 @@ Entry point điều phối toàn bộ quy trình crawl:
 Cách sử dụng:
   python main.py                    # Dùng config.json mặc định
   python main.py custom_config.json # Dùng config tùy chỉnh
-  python main.py --export-only      # Chỉ export CSV (không crawl)
-  python main.py --stats            # Chỉ xem thống kê
 """
 
 import json
@@ -34,7 +32,7 @@ from datetime import datetime
 from crawler.category_mapper import discover_leaf_categories
 from crawler.brand_classifier import BrandClassifier
 from crawler.scraper import TikiScraper, DEFAULT_HEADERS
-from crawler.storage import SQLiteStorage
+from crawler.storage import CSVStorage
 
 
 def setup_logging():
@@ -78,73 +76,6 @@ def load_config(filepath="config.json"):
         return json.load(f)
 
 
-def show_stats(config):
-    """Hiển thị thống kê database hiện tại (không crawl)."""
-    output = config["output"]
-    db_path = output["sqlite_db"]
-
-    if not os.path.exists(db_path):
-        print(f"Database chưa tồn tại: {db_path}")
-        print("Hãy chạy crawl trước: python main.py")
-        return
-
-    storage = SQLiteStorage(db_path)
-    stats = storage.get_stats()
-
-    print("\n" + "=" * 60)
-    print("THỐNG KÊ DATABASE HIỆN TẠI")
-    print("=" * 60)
-    print(f"Tổng sản phẩm: {stats['total_products']:,}")
-    print(f"Danh mục: {stats['unique_categories']}")
-    print(f"Thương hiệu: {stats['unique_brands']}")
-    print(f"Số lần crawl: {stats['total_runs']}")
-    print()
-    print("Phân bố Brand Type:")
-    for bt, count in stats.get("by_brand_type", {}).items():
-        print(f"  {bt}: {count:,}")
-    print()
-    print("Giá trung bình theo Brand Type:")
-    for bt, avg in stats.get("avg_price_by_type", {}).items():
-        print(f"  {bt}: {int(avg):,}đ")
-    print()
-    print("Rating trung bình theo Brand Type:")
-    for bt, avg in stats.get("avg_rating_by_type", {}).items():
-        print(f"  {bt}: {avg}")
-
-    # Hiển thị lịch sử crawl
-    runs = storage.get_run_history()
-    if runs:
-        print()
-        print("Lịch sử Crawl Runs:")
-        for run in runs[:5]:  # Hiập 5 lần gần nhất
-            print(
-                f"  [{run['run_id']}] "
-                f"{run['status']} | "
-                f"Found: {run['products_found']} | "
-                f"New: {run['products_new']} | "
-                f"Updated: {run['products_updated']}"
-            )
-
-    print("=" * 60)
-    storage.close()
-
-
-def export_only(config):
-    """Chỉ export CSV từ database hiện tại (không crawl)."""
-    output = config["output"]
-    db_path = output["sqlite_db"]
-    csv_path = output["csv_export"]
-
-    if not os.path.exists(db_path):
-        print(f"Database chưa tồn tại: {db_path}")
-        return
-
-    storage = SQLiteStorage(db_path)
-    count = storage.export_to_csv(csv_path)
-    print(f"Đã export {count:,} sản phẩm -> {csv_path}")
-    storage.close()
-
-
 def main():
     """Main entry point - Điều phối toàn bộ quy trình."""
     log_file = setup_logging()
@@ -162,15 +93,6 @@ def main():
 
     logger.info(f"Loading config: {config_path}")
     config = load_config(config_path)
-
-    # Xử lý các mode đặc biệt
-    if "--stats" in args:
-        show_stats(config)
-        return
-
-    if "--export-only" in args:
-        export_only(config)
-        return
 
     # ========== KHỞI TẠO CÁC COMPONENT ==========
     settings = config["scraping_settings"]
@@ -194,8 +116,8 @@ def main():
     # Khởi tạo Scraper
     scraper = TikiScraper(settings, classifier)
 
-    # Khởi tạo Storage (SQLite)
-    storage = SQLiteStorage(output["sqlite_db"])
+    # Khởi tạo Storage (CSV-only)
+    storage = CSVStorage()
     storage.start_run(run_id)
 
     try:
@@ -225,7 +147,7 @@ def main():
                 delay=settings.get("delay_between_requests_sec", 2.0),
             )
 
-            # Lưu metadata categories vào DB
+            # Lưu metadata categories vào storage in-memory
             storage.save_categories(leaves, parent_id)
             all_leaf_categories.extend(leaves)
 
@@ -268,7 +190,7 @@ def main():
             products = scraper.scrape_category(cat["id"], cat["name"])
 
             if products:
-                # UPSERT vào database (chống trùng lặp tuyệt đối)
+                # Upsert theo product_id trong bộ nhớ
                 new_count, updated_count = storage.upsert_products(
                     products, run_id
                 )
@@ -323,8 +245,7 @@ def main():
             logger.info(f"  {bt:20s}: {count:>6,} ({pct:.1f}%)")
 
         logger.info(f"")
-        logger.info(f"Output files:")
-        logger.info(f"  SQLite: {output['sqlite_db']}")
+        logger.info("Output files:")
         logger.info(f"  CSV:    {output['csv_export']} ({csv_count:,} records)")
         logger.info(f"  Log:    {log_file}")
         logger.info("=" * 60)

@@ -1,5 +1,5 @@
 """
-Brand Classifier - Thuật toán Phân loại Real-time (Global vs. OEM/Generic)
+Brand Classifier - Thuật toán Phân loại Real-time (Global vs. Local/OEM Generic)
 
 Đây là "linh hồn" của hệ thống. Mỗi sản phẩm được phân loại ngay
 tại thời điểm crawl dựa trên Decision Tree 3 tầng:
@@ -11,18 +11,11 @@ tại thời điểm crawl dựa trên Decision Tree 3 tầng:
                          │
            ┌─────────────▼──────────────┐
            │ brand_name ∈ global_dict?  │
-           │     HOẶC is_official?      │
            └─────┬────────────┬─────────┘
                  │ YES        │ NO
-       ┌─────────▼──┐  ┌─────▼──────────────────┐
-       │ GLOBAL_BRAND│  │ brand ∈ oem_indicators │
-       └─────────────┘  │   HOẶC brand rỗng?    │
-                        │   HOẶC cross_border?   │
-                        └────┬──────────┬────────┘
-                             │ YES      │ NO
-                   ┌─────────▼──┐ ┌─────▼────────┐
-                   │ OEM_GENERIC│ │ LOCAL_GENERIC │
-                   └────────────┘ └──────────────┘
+       ┌─────────▼──┐  ┌─────▼──────────────────────────┐
+       │GLOBAL_BRAND│  │ LOCAL_OEM_GENERIC (gộp 2 nhóm) │
+       └────────────┘  └─────────────────────────────────┘
 
 Mỗi sản phẩm sẽ có thêm 2 flag bổ trợ:
   - is_official: Cửa hàng chính hãng trên Tiki
@@ -36,16 +29,19 @@ logger = logging.getLogger(__name__)
 
 class BrandClassifier:
     """
-    Phân loại sản phẩm thành 3 nhóm thương hiệu:
+        Phân loại sản phẩm thành 2 nhóm thương hiệu:
     - Global_Brand:  Thương hiệu quốc tế đã biết HOẶC Official Store
-    - OEM_Generic:   Hàng OEM/No Brand/Generic/Cross-border
-    - Local_Generic: Thương hiệu nhỏ lẻ/nội địa chưa có trong từ điển
+        - Local/OEM Generic: Hàng OEM/No Brand/Generic/Cross-border
+            và thương hiệu nhỏ lẻ/nội địa chưa có trong từ điển
     """
 
     # Nhãn phân loại (constants)
     GLOBAL_BRAND = "Global_Brand"
-    OEM_GENERIC = "OEM_Generic"
-    LOCAL_GENERIC = "Local_Generic"
+    LOCAL_OEM_GENERIC = "Local/OEM Generic"
+
+    # Backward compatibility alias cho code cũ
+    OEM_GENERIC = LOCAL_OEM_GENERIC
+    LOCAL_GENERIC = LOCAL_OEM_GENERIC
 
     def __init__(self, global_brands_list, oem_indicators=None):
         """
@@ -90,7 +86,7 @@ class BrandClassifier:
 
         Returns:
             tuple: (brand_type: str, is_tiki_trading: int)
-                - brand_type: "Global_Brand" | "OEM_Generic" | "Local_Generic"
+                - brand_type: "Global_Brand" | "Local/OEM Generic"
                 - is_tiki_trading: 1 nếu Tiki Trading fulfillment, 0 nếu không
         """
         brand_name_raw = str(product_item.get("brand_name") or "").strip()
@@ -107,14 +103,14 @@ class BrandClassifier:
 
         # Ưu tiên 2: Brand rỗng hoặc khớp OEM indicators
         if not brand_name_lower or brand_name_lower in self.oem_indicators:
-            return self.OEM_GENERIC, is_tiki_trading
+            return self.LOCAL_OEM_GENERIC, is_tiki_trading
 
         # Ưu tiên 3: Hàng cross-border (thường là OEM Trung Quốc)
         if self._detect_cross_border(product_item):
-            return self.OEM_GENERIC, is_tiki_trading
+            return self.LOCAL_OEM_GENERIC, is_tiki_trading
 
         # Mặc định: Thương hiệu nhỏ lẻ/nội địa
-        return self.LOCAL_GENERIC, is_tiki_trading
+        return self.LOCAL_OEM_GENERIC, is_tiki_trading
 
     def _detect_official_badge(self, item):
         """

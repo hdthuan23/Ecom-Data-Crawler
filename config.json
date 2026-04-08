@@ -210,7 +210,6 @@
     "request_timeout_sec": 15
   },
   "output": {
-    "sqlite_db": "data/tiki_electronics_2026.db",
     "csv_export": "data/tiki_electronics_2026.csv"
   }
 }
